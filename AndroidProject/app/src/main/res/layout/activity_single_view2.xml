@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.androidproject.SingleViewActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+
+        <TextView
+            android:id="@+id/txtNameFood"
+            android:layout_width="143dp"
+            android:layout_height="27dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toTopOf="@+id/txtPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="87dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+            android:layout_marginStart="16dp"
+
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/gridView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNameFood" />
+
+
+        <ImageView
+            android:layout_width="365dp"
+            android:layout_height="312dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/salades_ca_hoi"
+            android:id="@+id/imageFood"/>
+
+        <TextView
+            android:id="@+id/txtArea"
+            android:layout_width="348dp"
+            android:layout_height="87dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="26dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridView" />
+
+
+
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="346dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginStart="14dp"
+            android:background="?android:attr/colorPressedHighlight"
+            android:text="Add To Cart"
+            android:textColor="@color/cardview_light_background"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>
