@@ -21,7 +21,7 @@ public class FoodDAO {
         public FoodDAO() {
 }
 
-        public List<ChefEntities> getOrder() throws SQLException {
+        public List<ChefEntities> getOrder(int tableNo) throws SQLException {
             List<ChefEntities> listChef = new ArrayList<>();
             ChefEntities chef = null;
             Connection conn = null;
@@ -30,16 +30,19 @@ public class FoodDAO {
 
             try {
                 conn = new BaseDAO().CONN();
-                String sql ="select StatusType,FoodQuantity,FoodName,FoodImg from (select b.FoodID as FoodID,FoodQuantity,FoodName,FoodImg,StatusID from OrderTBL a,FoodTBL b where a.FoodID=b.FoodID) a,StatusTBL b where a.StatusID=b.StatusID";
+                String sql ="select f.FoodName,o.FoodOrderQuantity,f.FoodImg,s.StatusType from OrderTBL o \n" +
+                        "join FoodTBL f on o.FoodID = f.FoodID \n" +
+                        "join StatusTBL s on s.StatusID = o.StatusID where o.TableNo = ?";
                 pre = conn.prepareStatement(sql);
+                pre.setInt(1,tableNo);
                 //pre.setInt(1,type);
                 rs = pre.executeQuery();
                 while (rs.next()){
                     chef = new ChefEntities();
-                    chef.setOrderId(rs.getInt("OrderId"));
+                    chef.setOrderId(rs.getString("OrderId"));
                     chef.setFoodImg(rs.getInt("FoodImg"));
                     chef.setFoodName(rs.getString("FoodName"));
-                    chef.setFoodQuantity(rs.getInt("FoodQuantity"));
+                    chef.setFoodQuantity(rs.getInt("FoodOrderQuantity"));
                     chef.setStatusType(rs.getString("StatusType"));
 
                     //order.Statu(type);

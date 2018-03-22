@@ -19,7 +19,7 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
     RecyclerView recyclerView;
     private GridView gridView;
     private int numberOfFood;
-    private FoodDAO foodDAO = new FoodDAO();
+
     List<ChefEntities> chefEntities;
 
 
@@ -29,25 +29,12 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
         setContentView(R.layout.activity_food_cheff);
         if(getIntent() != null)
         {
-            String info = getIntent().getStringExtra("info");
-            numberOfFood = Integer.parseInt(info);
-            Toast.makeText(this, info + "", Toast.LENGTH_LONG).show();
+         //   String info = getIntent().getStringExtra("info");
+          //  numberOfFood = Integer.parseInt(info);
+            //Toast.makeText(this, info + "", Toast.LENGTH_LONG).show();
         }
         try{
-            switch (numberOfFood){
-                case 0 :
-                    chefEntities =  foodDAO.getOrder();
-                    break;
-                case 1 :
-                    chefEntities =  foodDAO.getOrder();
-                    break;
-                case 2 :
-                    chefEntities =  foodDAO.getOrder();
-                    break;
-                case 3 :
-                    chefEntities =  foodDAO.getOrder();
-                    break;
-            }
+            chefEntities = new FoodDAO().getOrder(1);
 
 
 
