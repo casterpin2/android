@@ -38,7 +38,7 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.ViewHolder> {
     @Override
     public ChefAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-        View view = layoutInflater.inflate(R.layout.rv_food, parent, false);
+        View view = layoutInflater.inflate(R.layout.chef_item_layout, parent, false);
         ChefAdapter.ViewHolder viewHolder = new ChefAdapter.ViewHolder(view);
         return viewHolder;
     }

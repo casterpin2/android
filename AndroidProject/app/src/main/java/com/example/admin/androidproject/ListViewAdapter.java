@@ -86,7 +86,7 @@ public class ListViewAdapter extends BaseAdapter {
         return context;
     }
 
-    public class ViewHolder{
+    public static class ViewHolder{
         ImageView imageView;
         TextView txtID;
         TextView txtEmployeeName;

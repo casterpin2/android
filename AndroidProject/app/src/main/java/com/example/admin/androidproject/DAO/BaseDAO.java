@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 public class BaseDAO {
 
-    String ip = "192.168.107.87";
+    String ip = "192.168.107.86";
     String db = "MasterAndroid";
     String un = "sa";
     String password = "123456";
@@ -29,9 +29,7 @@ public class BaseDAO {
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             ConnURL = "jdbc:jtds:sqlserver://" + ip + "/" + db+ ";user=" + un + ";password=" + password + ";";
-
             conn = DriverManager.getConnection(ConnURL);
-
         }catch (SQLException se)
         {
             Log.e("error here 1 : ", se.getMessage());

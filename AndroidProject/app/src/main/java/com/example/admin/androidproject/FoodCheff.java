@@ -26,7 +26,7 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_cheff);
+        setContentView(R.layout.chef_item_layout);
         if(getIntent() != null)
         {
          //   String info = getIntent().getStringExtra("info");

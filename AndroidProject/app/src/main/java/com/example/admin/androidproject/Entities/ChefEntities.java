@@ -10,6 +10,7 @@ public class ChefEntities {
     private int foodImg;
     private  String statusType;
     private int foodQuantity;//orderQuantity
+    private String foodImgUrl;
 
     public ChefEntities() {
     }
@@ -60,5 +61,13 @@ public class ChefEntities {
 
     public void setFoodQuantity(int foodQuantity) {
         this.foodQuantity = foodQuantity;
+    }
+
+    public String getFoodImgUrl() {
+        return foodImgUrl;
+    }
+
+    public void setFoodImgUrl(String foodImgUrl) {
+        this.foodImgUrl = foodImgUrl;
     }
 }

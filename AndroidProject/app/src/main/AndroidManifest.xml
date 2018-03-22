@@ -17,11 +17,13 @@
             android:name=".ProductViewActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".FoodApp"
@@ -33,16 +35,16 @@
             android:name=".ProductOfTable"
             android:parentActivityName=".ProductViewActivity" />
         <activity android:name=".CustomListView" />
-        <activity android:name=".ViewOrderListByCasher"></activity>
+        <activity android:name=".ViewOrderListByCasher" />
         <activity android:name=".FoodCheff">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".CustomListView$ViewOrderListByChef" />
+        <activity android:name=".ViewOrderListByChef"></activity>
     </application>
 
 </manifest>

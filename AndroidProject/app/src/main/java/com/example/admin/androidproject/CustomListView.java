@@ -10,4 +10,6 @@ public class CustomListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_list_view);
     }
+
+
 }
