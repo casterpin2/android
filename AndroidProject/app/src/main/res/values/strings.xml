@@ -9,4 +9,11 @@
     <string name="Ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="titleView">List Of Ordering</string>
+    <string name="orderID">Order ID</string>
+    <string name="tableNo">Table No</string>
+    <string name="employeeName">Employee Name</string>
+    <string name="orderTime">Order Time</string>
+    <string name="totalBill">Total</string>
+    <string name="backBtn">Back</string>
+    <string name="payBtn">Pay</string>
 </resources>

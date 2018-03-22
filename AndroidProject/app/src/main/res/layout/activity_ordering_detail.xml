@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.androidproject.OrderingDetail"
+    tools:layout_editor_absoluteY="81dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/content">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/orderID"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/orderIDTextView"
+            android:layout_width="105dp"
+            android:layout_height="25dp"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/tableNo"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tableNoTextView"
+            android:layout_width="155dp"
+            android:layout_height="25dp"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_marginStart="38dp"
+            android:layout_toEndOf="@+id/textView2"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="15dp"
+            android:text="@string/employeeName"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/employeeNameTextView"
+            android:layout_width="155dp"
+            android:layout_height="25dp"
+            android:layout_alignBaseline="@+id/textView3"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_alignStart="@+id/tableNoTextView"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_alignStart="@+id/textView3"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="16dp"
+            android:text="@string/orderTime"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/orderTimeTextView"
+            android:layout_width="155dp"
+            android:layout_height="25dp"
+            android:layout_alignStart="@+id/employeeNameTextView"
+            android:layout_alignTop="@+id/textView4"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="20dp"
+            android:text="@string/totalBill"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/totalBillTextView"
+            android:layout_width="155dp"
+            android:layout_height="25dp"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignStart="@+id/orderTimeTextView"
+            android:textSize="15dp"/>
+        <ListView
+            android:id="@+id/foodLIstView"
+            android:layout_width="match_parent"
+            android:layout_height="520dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="58dp"
+            tools:ignore="NotSibling" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/buttonPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="461dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13dp"
+            android:onClick="backToPreviousActivity"
+            android:text="@string/backBtn" />
+
+        <Button
+            android:id="@+id/payBtn"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/backBtn"
+            android:layout_alignBottom="@+id/backBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="13dp"
+            android:onClick="clickPay"
+            android:text="@string/payBtn" />
+
+    </RelativeLayout>
+</RelativeLayout>

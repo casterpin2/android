@@ -5,14 +5,14 @@ package com.example.admin.androidproject.Entities;
  */
 
 public class FoodInOrderEntities {
-    private int orderID;
+    private String orderID;
     private String foodID;
     private String foodName;
     private int quanlity;
     private double price;
     private String foodImg;
 
-    public FoodInOrderEntities(int orderID, String foodID,String foodName, int quanlity, double price, String foodImg) {
+    public FoodInOrderEntities(String orderID, String foodID,String foodName, int quanlity, double price, String foodImg) {
         this.orderID = orderID;
         this.foodID = foodID;
         this.foodName = foodName;
@@ -24,11 +24,11 @@ public class FoodInOrderEntities {
 
     }
 
-    public int getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 

@@ -35,16 +35,25 @@
             android:name=".ProductOfTable"
             android:parentActivityName=".ProductViewActivity" />
         <activity android:name=".CustomListView" />
-        <activity android:name=".ViewOrderListByCasher" />
-        <activity android:name=".FoodCheff">
+        <activity android:name=".ViewOrderListByCasher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CustomListView$ViewOrderListByChef" />
+        <activity android:name=".FoodCheff">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".OrderingDetail" />
         <activity android:name=".ViewOrderListByChef"></activity>
+        <activity android:name=".LoginWithAccount"></activity>
     </application>
 
 </manifest>

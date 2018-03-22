@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 public class BaseDAO {
 
-    String ip = "192.168.107.86";
+    String ip = "192.168.107.107";
     String db = "MasterAndroid";
     String un = "sa";
     String password = "123456";

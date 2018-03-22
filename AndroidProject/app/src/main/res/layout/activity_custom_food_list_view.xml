@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.androidproject.CustomFoodListView"
+    tools:layout_editor_absoluteY="81dp">
+
+    <ImageView
+        android:id="@+id/foodImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintBottom_toTopOf="@+id/employeeID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/employeeID"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <TextView
+        android:id="@+id/foodNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginTop="13dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foodNameTextView"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/foodImage"
+        android:text="Quantity"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/quantityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView9"
+        android:layout_alignBottom="@+id/textView9"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/textView9"
+        android:text="TextView"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/foodImage"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginBottom="15dp"
+        android:text="Price"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView11"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_alignStart="@+id/quantityTextView"
+        android:text="TextView"
+        android:textSize="15sp"/>
+</RelativeLayout>
