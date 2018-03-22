@@ -25,11 +25,15 @@
         </activity>
         <activity
             android:name=".FoodApp"
-            android:parentActivityName=".ProductViewActivity"></activity>
+            android:parentActivityName=".ProductViewActivity" />
         <activity
             android:name=".SingleViewActivity"
             android:parentActivityName=".FoodApp" />
-        <activity android:name=".ProductOfTable" android:parentActivityName=".ProductViewActivity"></activity>
+        <activity
+            android:name=".ProductOfTable"
+            android:parentActivityName=".ProductViewActivity" />
+        <activity android:name=".CustomListView" />
+        <activity android:name=".ViewOrderListByCasher"></activity>
     </application>
 
 </manifest>

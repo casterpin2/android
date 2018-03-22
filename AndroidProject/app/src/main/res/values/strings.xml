@@ -8,4 +8,5 @@
     <string name="title_activity_single_view">SingleViewActivity</string>
     <string name="Ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="titleView">List Of Ordering</string>
 </resources>
