@@ -1,5 +1,7 @@
 package com.example.admin.androidproject.Entities;
 
+import java.util.Date;
+
 /**
  * Created by TUMG on 21/03/2018.
  */
@@ -11,7 +13,9 @@ public class ChefEntities {
     private  String statusType;
     private int foodQuantity;//orderQuantity
     private String foodImgUrl;
-
+    private int table;
+    private Date orderTime;
+    private String oderByName;
     public ChefEntities() {
     }
 
@@ -69,5 +73,29 @@ public class ChefEntities {
 
     public void setFoodImgUrl(String foodImgUrl) {
         this.foodImgUrl = foodImgUrl;
+    }
+
+    public int getTable() {
+        return table;
+    }
+
+    public void setTable(int table) {
+        this.table = table;
+    }
+
+    public Date getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(Date orderTime) {
+        this.orderTime = orderTime;
+    }
+
+    public String getOderByName() {
+        return oderByName;
+    }
+
+    public void setOderByName(String oderByName) {
+        this.oderByName = oderByName;
     }
 }

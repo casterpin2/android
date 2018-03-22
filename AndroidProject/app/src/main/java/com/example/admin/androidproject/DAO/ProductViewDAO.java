@@ -3,8 +3,10 @@ package com.example.admin.androidproject.DAO;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.admin.androidproject.Entities.ChefEntities;
 import com.example.admin.androidproject.Entities.FoodEntities;
 import com.example.admin.androidproject.Entities.FoodInOrderEntities;
+import com.example.admin.androidproject.Entities.OrderEntities;
 import com.example.admin.androidproject.Entities.OrderForCasherEntities;
 
 import java.sql.Connection;
@@ -156,6 +158,50 @@ public class ProductViewDAO {
 
 
         return foodList;
+    }
+
+
+
+    public List<ChefEntities> getOrderByChef() throws SQLException {
+        List<ChefEntities> orderList = new ArrayList<>();
+        ChefEntities order = null;
+        Connection conn = null;
+        PreparedStatement pre = null;
+        ResultSet rs = null;
+
+        try {
+            conn = new BaseDAO().CONN();
+            String sql ="select distinct o.OrderID,o.TableNo,o.OrderTime,e.EmployeeName from \n" +
+                    "\n" +
+                    "                     OrderTBL o join StatusTBL s on o.StatusID = s.StatusID\n" +
+                    "                   join EmployeeTBL e on e.EmployeeId = o.EmployeeOrder \n" +
+                    "                   where  o.StatusID in (1)";
+            pre = conn.prepareStatement(sql);
+            rs = pre.executeQuery();
+            while (rs.next()){
+                order = new ChefEntities();
+                order.setOrderId(rs.getString("OrderID"));
+                order.setTable(rs.getInt("TableNo"));
+                order.setOrderTime(rs.getTimestamp("OrderTime"));
+                order.setOderByName(rs.getString("EmployeeName"));
+                orderList.add(order);
+            }
+        } catch (Exception e) {
+            Log.e("MSG", e.getMessage());
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+            if (pre != null) {
+                pre.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+        }
+
+
+        return orderList;
     }
 
 }

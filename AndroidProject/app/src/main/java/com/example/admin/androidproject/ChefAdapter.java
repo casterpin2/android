@@ -56,7 +56,7 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.ViewHolder> {
         int nameImg = mList.get(position).getFoodImg();
 
 
-        int id = mContext.getResources().getIdentifier(mList.get(position).getFoodImg() + "", "drawable", mContext.getPackageName());
+        int id = mContext.getResources().getIdentifier(mList.get(position).getFoodImgUrl() + "", "drawable", mContext.getPackageName());
         image.setImageResource(id);
 
         //image.setImageResource(mList.get(position).getImg());
@@ -82,10 +82,10 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            itemName = itemView.findViewById(R.id.itemName);
-            itemQuantity = itemView.findViewById(R.id.itemQuantity);
-            textStatus = itemView.findViewById(R.id.textStatus);
-            imgView = itemView.findViewById(R.id.imgView);
+            itemName = itemView.findViewById(R.id.itemNameChef);
+            itemQuantity = itemView.findViewById(R.id.itemQuantityChef);
+            textStatus = itemView.findViewById(R.id.textStatusChef);
+            imgView = itemView.findViewById(R.id.imgViewChef);
             itemView.setOnClickListener(this);
 
         }

@@ -18,12 +18,12 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <!--<intent-filter>-->
+             <!--<action android:name="android.intent.action.MAIN" />-->
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <!--<category android:name="android.intent.category.LAUNCHER" />-->
+             <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".FoodApp"
@@ -36,11 +36,7 @@
             android:parentActivityName=".ProductViewActivity" />
         <activity android:name=".CustomListView" />
         <activity android:name=".ViewOrderListByCasher">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".FoodCheff">
 
@@ -52,7 +48,13 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".OrderingDetail" />
-        <activity android:name=".ViewOrderListByChef"></activity>
+        <activity android:name=".ViewOrderListByChef">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".LoginWithAccount"></activity>
     </application>
 

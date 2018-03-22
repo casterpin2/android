@@ -74,7 +74,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         if(order != null) {
             TextView orderID = (TextView) view.findViewById(R.id.orderID);
-            orderID.setText(String.valueOf(order.getOrderID()));
+            orderID.setText(String.valueOf(order.getEmployeeOrder()));
             TextView employeeName = (TextView) view.findViewById(R.id.employeeID);
             employeeName.setText(order.getEmployeeOrder());
         }

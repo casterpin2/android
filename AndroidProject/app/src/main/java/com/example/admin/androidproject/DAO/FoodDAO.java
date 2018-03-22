@@ -31,9 +31,8 @@ public class FoodDAO {
             try {
                 conn = new BaseDAO().CONN();
                 String sql ="select f.FoodName,o.FoodOrderQuantity,f.FoodImg,s.StatusType,o.OrderID from OrderTBL o \n" +
-                        "\" +\n" +
-                        "                        \"join FoodTBL f on o.FoodID = f.FoodID \\n\" +\n" +
-                        "                        \"join StatusTBL s on s.StatusID = o.StatusID where o.TableNo = ?";
+                        "                      join FoodTBL f on o.FoodID = f.FoodID \n" +
+                        "                       join StatusTBL s on s.StatusID = o.StatusID where o.TableNo = ?";
                 pre = conn.prepareStatement(sql);
                 pre.setInt(1,tableNo);
                 //pre.setInt(1,type);

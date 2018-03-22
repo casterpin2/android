@@ -11,7 +11,7 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/imgView"
+            android:id="@+id/imgViewChef"
             android:layout_width="105dp"
             android:layout_height="94dp"
             android:src="@drawable/test" />
@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/itemName"
+                android:id="@+id/itemNameChef"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Food Name"
@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/itemQuantity"
+                android:id="@+id/itemQuantityChef"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quantity"
@@ -39,7 +39,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textStatus"
+            android:id="@+id/textStatusChef"
             android:layout_width="41dp"
             android:layout_height="25dp"
             android:layout_weight="2"
