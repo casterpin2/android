@@ -25,7 +25,7 @@ public class ViewOrderListByChef extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order_list_by_chef2);
-        orderingListView =(ListView) findViewById(R.id.orderingListView2);
+        orderingListView =(ListView) findViewById(R.id.rv);
         orderList = new ArrayList<OrderForCasherEntities>();
         ProductViewDAO dao = new ProductViewDAO();
         try {

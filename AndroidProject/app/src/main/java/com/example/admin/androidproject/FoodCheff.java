@@ -26,7 +26,7 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chef_item_layout);
+        setContentView(R.layout.activity_custom_listview_chef);
         if(getIntent() != null)
         {
          //   String info = getIntent().getStringExtra("info");
@@ -36,7 +36,8 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
         try{
             chefEntities = new FoodDAO().getOrder(1);
 
-
+            recyclerView = findViewById(R.id.rv);
+            recyclerView.setHasFixedSize(true);
 
             ChefAdapter adapter = new ChefAdapter(this,chefEntities );
             recyclerView.setAdapter(adapter);
