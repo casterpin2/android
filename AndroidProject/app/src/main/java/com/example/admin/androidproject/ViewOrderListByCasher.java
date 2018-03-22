@@ -23,17 +23,6 @@ public class ViewOrderListByCasher extends AppCompatActivity {
     List<OrderForCasherEntities> orderList = null;
     ArrayAdapter<OrderForCasherEntities> adapter = null;
     static final int REQUEST = 8888;
-//    SharedPreferences.Editor editor;
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(resultCode == RESULT_OK) {
-//            String orderID = data.getStringExtra("OrderID");
-//            TextView text = (TextView) findViewById(R.id.textView1);
-//            text.setText(name);
-//        }
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +45,11 @@ public class ViewOrderListByCasher extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 OrderForCasherEntities order = orderList.get(position);
-                Intent intent = new Intent(getApplicationContext(),OrderingDetail.class);
+                Intent intent = new Intent(ViewOrderListByCasher.this,OrderingDetail.class);
                 intent.putExtra("orderID",order.getOrderID());
                 intent.putExtra("tableNo",order.getTableNo());
                 intent.putExtra("orderTime",order.getOrderTime());
                 intent.putExtra("employeeName",order.getEmployeeOrder());
-
 
                 startActivity(intent);
 //                Toast.makeText(ViewOrderListByCasher.this, "Order : [" +orderList.get(position).getOrderID()+orderList.get(position).getTableNo()+ "]", Toast.LENGTH_LONG).show();

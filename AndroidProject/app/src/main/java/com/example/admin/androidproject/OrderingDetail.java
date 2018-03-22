@@ -25,7 +25,7 @@ public class OrderingDetail extends AppCompatActivity {
     TextView employeeNameTV = null;
     TextView orderTimeTV = null;
     TextView totalBillTV = null;
-    ProductViewDAO dao;
+
 
 
     @Override
@@ -51,7 +51,7 @@ public class OrderingDetail extends AppCompatActivity {
 
         listFood = new ArrayList<>();
         try {
-            listFood = dao.getFoodForOrder(orderID);
+            listFood = new ProductViewDAO().getFoodForOrder(orderID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
