@@ -81,8 +81,10 @@ public class ProductViewDAO {
 
         try {
             conn = new BaseDAO().CONN();
-            String sql ="select o.OrderID, o.TableNo, o. OrderTime, e.EmployeeName from OrderTBL as o " +
-                    "inner join StatusTBL as s on o.StatusID = 1 inner join EmployeeTBL e on o.EmployeeOrder = e.EmployeeId;";
+            String sql ="select o.OrderID,o.TableNo,o.OrderTime,e.EmployeeName from \n" +
+                    "                    OrderTBL o join StatusTBL s on o.StatusID = s.StatusID\n" +
+                    "                    join EmployeeTBL e on e.EmployeeId = o.EmployeeOrder \n" +
+                    "                    where  o.StatusID in (1,2)";
             pre = conn.prepareStatement(sql);
             rs = pre.executeQuery();
             while (rs.next()){
