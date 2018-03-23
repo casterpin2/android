@@ -86,7 +86,7 @@ public class ProductViewDAO {
             String sql ="select o.OrderID,o.TableNo,o.OrderTime,e.EmployeeName from \n" +
                     "                    OrderTBL o join StatusTBL s on o.StatusID = s.StatusID\n" +
                     "                    join EmployeeTBL e on e.EmployeeId = o.EmployeeOrder \n" +
-                    "                    where  o.StatusID in (1,2)";
+                    "                    where  o.StatusID in (3)";
             pre = conn.prepareStatement(sql);
             rs = pre.executeQuery();
             while (rs.next()){
@@ -160,6 +160,44 @@ public class ProductViewDAO {
         return foodList;
     }
 
+    //update order status after pay order (ThangND)
+    public boolean updateOrderStatus(String orderID) throws SQLException {
+
+        Connection conn = null;
+        PreparedStatement pre = null;
+        ResultSet rs = null;
+        boolean result = false;
+
+        try {
+            conn = new BaseDAO().CONN();
+            String sql =" update OrderTBL set StatusID = 2 where OrderID = ?";
+            pre.setString(1,orderID);
+            pre = conn.prepareStatement(sql);
+            rs = pre.executeQuery();
+            if (!rs.next() && rs.getRow() == 0) {
+                result = false; // If there is no result set false
+                System.out.println("Wrong with updating!");
+            } else {
+                result = true; // If there is a result set true
+                System.out.println("Update successful!");
+            }
+        } catch (Exception e) {
+            Log.e("MSG", e.getMessage());
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+            if (pre != null) {
+                pre.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+        }
+
+
+        return result;
+    }
 
 
     public List<ChefEntities> getOrderByChef() throws SQLException {

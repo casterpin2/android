@@ -16,4 +16,6 @@
     <string name="totalBill">Total</string>
     <string name="backBtn">Back</string>
     <string name="payBtn">Pay</string>
+    <string name="confirm">Confirm</string>
+    <string name="notyet">Not Yet</string>
 </resources>

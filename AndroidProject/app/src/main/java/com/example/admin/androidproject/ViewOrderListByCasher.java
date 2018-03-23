@@ -25,6 +25,15 @@ public class ViewOrderListByCasher extends AppCompatActivity {
     static final int REQUEST = 8888;
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK) {
+            boolean isUpdate = data.getBooleanExtra("isUpdate",false);
+            Toast.makeText(this,isUpdate+"",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order_list_by_casher);
