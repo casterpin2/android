@@ -85,14 +85,12 @@ public class ListViewAdapterByChef extends BaseAdapter {
             holder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
             holder.txtID = (TextView) (TextView) convertView.findViewById(R.id.orderID);
             holder.txtEmployeeName = (TextView) convertView.findViewById(R.id.employeeID);
-            System.out.println("A");
             convertView.setTag(holder);
         }else{
             holder = (ListViewAdapter.ViewHolder) convertView.getTag();
         }
         ChefEntities order = list.get(position);
         if(order != null) {
-            System.out.println("B");
             TextView orderID = (TextView) convertView.findViewById(R.id.orderID);
             order.setOderByName(order.getOrderId());
             TextView employeeName = (TextView) convertView.findViewById(R.id.employeeID);

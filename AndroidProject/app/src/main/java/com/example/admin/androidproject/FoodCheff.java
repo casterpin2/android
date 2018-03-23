@@ -23,6 +23,7 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
     private int numberOfFood;
 
     List<ChefEntities> chefEntities;
+    private ChefAdapter adapter;
 
 
     @Override
@@ -53,7 +54,7 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
         RecyclerView.LayoutManager rvLilayoutManager = layoutManager;
         recyclerView.setLayoutManager(rvLilayoutManager);
 
-        ChefAdapter adapter = new ChefAdapter(this,chefEntities);
+        adapter = new ChefAdapter(this,chefEntities);
         recyclerView.setAdapter(adapter);
         adapter.setClickListener(this);
 
@@ -62,6 +63,7 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
 
     @Override
     public void onClick(View view, int position) {
-
+        chefEntities.remove(position);
+        adapter.notifyDataSetChanged();
     }
 }

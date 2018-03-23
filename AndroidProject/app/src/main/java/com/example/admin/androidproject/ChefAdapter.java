@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -78,7 +79,8 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imgView;
-        TextView itemName, itemQuantity,textStatus;
+        TextView itemName, itemQuantity;
+        Button textStatus;
 
         public ViewHolder(View itemView) {
             super(itemView);
