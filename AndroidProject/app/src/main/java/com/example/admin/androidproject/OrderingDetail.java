@@ -50,7 +50,7 @@ public class OrderingDetail extends AppCompatActivity {
         totalBillTV = (TextView) findViewById(R.id.totalBillTextView);
 
         Intent i = getIntent();
-        String orderID = i.getExtras().getString("orderID");
+        final String orderID = i.getExtras().getString("orderID");
         int tableNo = i.getExtras().getInt("tableNo");
         String orderTime = i.getExtras().getString("orderTime");
         String employeeName = i.getExtras().getString("employeeName");
