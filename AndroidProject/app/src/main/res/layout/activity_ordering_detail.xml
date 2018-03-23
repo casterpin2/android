@@ -19,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text="@string/orderID"
-            android:textSize="15dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/orderIDTextView"
@@ -29,7 +29,7 @@
             android:layout_alignBottom="@+id/textView1"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="16dp"
-            android:textSize="15dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -50,7 +50,7 @@
             android:layout_alignBottom="@+id/textView2"
             android:layout_marginStart="38dp"
             android:layout_toEndOf="@+id/textView2"
-            android:textSize="15dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -60,7 +60,7 @@
             android:layout_below="@+id/textView2"
             android:layout_marginTop="15dp"
             android:text="@string/employeeName"
-            android:textSize="15dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/employeeNameTextView"
@@ -69,7 +69,7 @@
             android:layout_alignBaseline="@+id/textView3"
             android:layout_alignBottom="@+id/textView3"
             android:layout_alignStart="@+id/tableNoTextView"
-            android:textSize="15dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -79,7 +79,7 @@
             android:layout_below="@+id/textView3"
             android:layout_marginTop="16dp"
             android:text="@string/orderTime"
-            android:textSize="15dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/orderTimeTextView"
@@ -87,7 +87,7 @@
             android:layout_height="25dp"
             android:layout_alignStart="@+id/employeeNameTextView"
             android:layout_alignTop="@+id/textView4"
-            android:textSize="15dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/textView"
@@ -97,7 +97,7 @@
             android:layout_below="@+id/textView4"
             android:layout_marginTop="20dp"
             android:text="@string/totalBill"
-            android:textSize="15dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/totalBillTextView"
@@ -106,7 +106,7 @@
             android:layout_alignBaseline="@+id/textView"
             android:layout_alignBottom="@+id/textView"
             android:layout_alignStart="@+id/orderTimeTextView"
-            android:textSize="15dp"/>
+            android:textSize="20dp"/>
         <ListView
             android:id="@+id/foodLIstView"
             android:layout_width="match_parent"
