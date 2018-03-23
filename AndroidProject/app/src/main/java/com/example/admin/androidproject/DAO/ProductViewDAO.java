@@ -89,7 +89,7 @@ public class ProductViewDAO {
             rs = pre.executeQuery();
             while (rs.next()){
                 order = new OrderForCasherEntities();
-                order.setOrderID(rs.getInt("OrderID"));
+                order.setOrderID(rs.getString("OrderID"));
                 order.setTableNo(rs.getInt("TableNo"));
                 order.setOrderTime(rs.getString("OrderTime"));
                 order.setEmployeeOrder(rs.getString("EmployeeName"));
@@ -115,7 +115,7 @@ public class ProductViewDAO {
     }
 
     //get food list via orderID (ThangND)
-    public List<FoodInOrderEntities> getFoodForOrder(int orderID) throws SQLException {
+    public List<FoodInOrderEntities> getFoodForOrder(String orderID) throws SQLException {
         List<FoodInOrderEntities> foodList = new ArrayList<>();
         FoodInOrderEntities food = null;
         Connection conn = null;
@@ -124,16 +124,19 @@ public class ProductViewDAO {
 
         try {
             conn = new BaseDAO().CONN();
-            String sql ="select o.FoodID, o. FoodOrderQuantity, f.FoodPrice, f.FoodName from OrderTBL o inner join FoodTBL f on o.FoodID = f.FoodID  where o.OrderID = ?;";
+            String sql ="select o.OrderID, o.FoodID, f.FoodName, o. FoodOrderQuantity, f.FoodPrice, f.FoodImg from OrderTBL o inner join FoodTBL f on o.FoodID = f.FoodID  where o.OrderID = ?";
             pre = conn.prepareStatement(sql);
-            pre.setInt(1,orderID);
+            pre.setString(1,orderID);
             rs = pre.executeQuery();
             while (rs.next()){
                 food = new FoodInOrderEntities();
+                food.setOrderID(rs.getString("OrderID"));
                 food.setFoodID(rs.getString("FoodID"));
                 food.setFoodName(rs.getString("FoodName"));
                 food.setQuanlity(rs.getInt("FoodOrderQuantity"));
                 food.setPrice(rs.getDouble("FoodPrice"));
+                food.setFoodImg(rs.getString("FoodImg"));
+
 
                 foodList.add(food);
             }

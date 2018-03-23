@@ -5,7 +5,7 @@ package com.example.admin.androidproject.Entities;
  */
 
 public class OrderForCasherEntities {
-    private int orderID;
+    private String orderID;
     private int tableNo;
     private String orderTime;
     private int statusID;
@@ -15,7 +15,7 @@ public class OrderForCasherEntities {
 
     }
 
-    public OrderForCasherEntities(int orderID, int tableNo, String orderTime, int statusID, String employeeName) {
+    public OrderForCasherEntities(String orderID, int tableNo, String orderTime, int statusID, String employeeName) {
         this.orderID = orderID;
         this.tableNo = tableNo;
         this.orderTime = orderTime;
@@ -23,11 +23,11 @@ public class OrderForCasherEntities {
         this.employeeName = employeeName;
     }
 
-    public int getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 

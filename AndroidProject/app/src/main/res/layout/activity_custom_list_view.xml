@@ -28,16 +28,15 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:layout_toEndOf="@+id/imageView"
-        android:textSize="24sp"
+        android:textSize="20sp"
         />
 
     <TextView
         android:id="@+id/employeeID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_marginBottom="17dp"
-        android:layout_marginStart="-30dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/orderID" />
+        android:layout_below="@+id/orderID"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginStart="20dp" />
 </RelativeLayout>

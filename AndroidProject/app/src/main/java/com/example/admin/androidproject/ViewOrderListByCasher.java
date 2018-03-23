@@ -35,7 +35,6 @@ public class ViewOrderListByCasher extends AppCompatActivity {
 //        }
 //    }
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +48,6 @@ public class ViewOrderListByCasher extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        orderList.add(new OrderingForCasher(100,1,"1",0,"Nguyen Dai Thang"));
-//        orderList.add(new OrderingForCasher(101,2,"2",0,"Nguyen Dai Thang"));
-//        orderList.add(new OrderingForCasher(102,1,"3",0,"Nguyen Dai Thang"));
-//        orderList.add(new OrderingForCasher(103,7,"4",0,"Nguyen Dai Thang"));
 
         ListViewAdapter adapter = new ListViewAdapter(ViewOrderListByCasher.this, R.layout.activity_custom_list_view, orderList);
         orderingListView.setAdapter(adapter);
@@ -61,14 +56,14 @@ public class ViewOrderListByCasher extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 OrderForCasherEntities order = orderList.get(position);
-//                Intent intent = new Intent(getApplicationContext(),OrderingDetail.class);
-//                intent.putExtra("orderID ",order.getOrderID());
-//                intent.putExtra("tableNo ",order.getTableNo());
-//                intent.putExtra("orderTime ",order.getOrderTime());
-//                intent.putExtra("employeeName ",order.getEmployeeOrder());
+                Intent intent = new Intent(getApplicationContext(),OrderingDetail.class);
+                intent.putExtra("orderID",order.getOrderID());
+                intent.putExtra("tableNo",order.getTableNo());
+                intent.putExtra("orderTime",order.getOrderTime());
+                intent.putExtra("employeeName",order.getEmployeeOrder());
 
 
-//                startActivity(intent);
+                startActivity(intent);
 //                Toast.makeText(ViewOrderListByCasher.this, "Order : [" +orderList.get(position).getOrderID()+orderList.get(position).getTableNo()+ "]", Toast.LENGTH_LONG).show();
 
             }
