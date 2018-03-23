@@ -1,6 +1,7 @@
 package com.example.admin.androidproject;
 
 import android.content.Intent;
+import android.opengl.GLES30;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,9 @@ public class ProductViewActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private TextView textView;
     private GridLayout gridLayout;
+    private String empId;
+    private int roleId;
+    private String role;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,13 @@ public class ProductViewActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(getIntent()!=null){
+            empId = getIntent().getExtras().getString("empID");
+            roleId = getIntent().getExtras().getInt("roleId");
+
+            System.out.println(empId+""+roleId);
+        }
 
         gridLayout = (GridLayout) findViewById(R.id.mainGrid);
 

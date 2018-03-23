@@ -49,13 +49,15 @@
         </activity>
         <activity android:name=".OrderingDetail" />
         <activity android:name=".ViewOrderListByChef">
+
+        </activity>
+        <activity android:name=".LoginWithAccount">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginWithAccount"></activity>
     </application>
 
 </manifest>
