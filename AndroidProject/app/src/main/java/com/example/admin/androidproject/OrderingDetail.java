@@ -1,6 +1,7 @@
 package com.example.admin.androidproject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -18,8 +20,12 @@ import com.example.admin.androidproject.DAO.ProductViewDAO;
 import com.example.admin.androidproject.Entities.FoodInOrderEntities;
 
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
+import java.util.Locale;
 
 public class OrderingDetail extends AppCompatActivity {
     Button backBtn;
@@ -32,6 +38,7 @@ public class OrderingDetail extends AppCompatActivity {
     TextView orderTimeTV = null;
     TextView totalBillTV = null;
     ProductViewDAO dao = new ProductViewDAO();
+    TextView totalView = null;
 
 
     @Override
@@ -61,6 +68,12 @@ public class OrderingDetail extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        double total= 0;
+        for (FoodInOrderEntities f : listFood){
+            total += f.getPrice()*f.getQuanlity();
+        }
+        formatVnCurrence(this,total+"");
+        totalBillTV.setText(formatVnCurrence(this,total+""));
 
         FoodListViewAdapter adapter = new FoodListViewAdapter(OrderingDetail.this, R.layout.activity_custom_food_list_view, listFood);
         foodListView.setAdapter(adapter);
@@ -93,9 +106,10 @@ public class OrderingDetail extends AppCompatActivity {
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
-                        Intent result = new Intent();
-                        result.putExtra("isUpdate", isUpdate);
-                        setResult(Activity.RESULT_OK, result);
+                        Intent result = new Intent(OrderingDetail.this,ViewOrderListByChef.class);
+                        result.putExtra("isUpdate", isUpdate+"");
+                        result.putExtra("orderId",orderID+"");
+                        setResult(200, result);
                         finish();
                     }
                 });
@@ -137,7 +151,26 @@ public class OrderingDetail extends AppCompatActivity {
         }
 
     }
+    public static String formatVnCurrence(Context context, String price) {
 
+        NumberFormat format =
+                new DecimalFormat("#,##0.00");// #,##0.00 ¤ (¤:// Currency symbol)
+        format.setCurrency(Currency.getInstance(Locale.US));//Or default locale
+
+        price = (!TextUtils.isEmpty(price)) ? price : "0";
+        price = price.trim();
+        price = format.format(Double.parseDouble(price));
+        price = price.replaceAll(",", "\\.");
+
+        if (price.endsWith(".00")) {
+            int centsIndex = price.lastIndexOf(".00");
+            if (centsIndex != -1) {
+                price = price.substring(0, centsIndex);
+            }
+        }
+        price = String.format("%s đ", price);
+        return price;
+    }
 
     public void clickPay(View view) {
 

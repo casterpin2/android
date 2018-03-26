@@ -80,22 +80,25 @@ public class SingleViewDao {
                     "           ,[FoodOrderQuantity]\n" +
                     "           ,[DemandCustomer]\n" +
                     "           ,[StatusID]\n" +
-                    "           ,[EmployeeOrder])\n" +
+                    "           ,[EmployeeOrder],[OrderID])\n" +
                     "           VALUES\n" +
-                    "           (?,?,?,?,?,?,?)";
+                    "           (?,?,?,?,?,?,?,?)";
             pre = conn.prepareStatement(sql);
             pre.setInt(1, e.getTableNo());
             Date currentTime = Calendar.getInstance().getTime();
-            DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-            java.sql.Date sqlDate = java.sql.Date.valueOf(df.format(currentTime));
-            pre.setDate(2, sqlDate);
-            pre.setInt(3, e.getFoodOrderQuantity());
-            pre.setString(4, e.getDemandCustommer());
-            pre.setInt(5, 1);
-            pre.setString(6, "EMP001");
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+            pre.setDate(2, date);
+            pre.setString(3,e.getFoodId());
+            pre.setInt(4, e.getFoodOrderQuantity());
+            pre.setString(5, "N/A");
+            pre.setInt(6, 1);
+            pre.setString(7, e.getEmployeeId());
+            pre.setString(8,e.getOrderId());
             pre.addBatch();
             int[] count = pre.executeBatch();
             if (count.length > 0) {
+                conn.commit();
                 checkInsert = true;
             }
 
@@ -141,6 +144,7 @@ public class SingleViewDao {
             int[] count = pre.executeBatch();
             if (count.length > 0) {
                 checkUpdate = true;
+                conn.commit();
             }
 
         } catch (Exception ex) {

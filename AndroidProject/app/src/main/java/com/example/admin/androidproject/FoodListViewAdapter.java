@@ -1,6 +1,7 @@
 package com.example.admin.androidproject;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,11 @@ import android.widget.TextView;
 
 import com.example.admin.androidproject.Entities.FoodInOrderEntities;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Currency;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by ThangOcCho on 3/22/2018.
@@ -68,7 +73,7 @@ public class FoodListViewAdapter extends BaseAdapter {
             TextView foodQuantity = (TextView) view.findViewById(R.id.quantityTextView);
             foodQuantity.setText(String.valueOf(food.getQuanlity()));
             TextView foodPrice = (TextView) view.findViewById(R.id.priceTextView);
-            foodPrice.setText(String.valueOf(food.getPrice()));
+            foodPrice.setText(formatVnCurrence(context,food.getPrice()+""));
             ImageView foodImg = (ImageView) view.findViewById(R.id.foodImage);
             int id = context.getResources().getIdentifier(foodList.get(position).getFoodImg() + "", "drawable", context.getPackageName());
             foodImg.setImageResource(id);
@@ -86,5 +91,25 @@ public class FoodListViewAdapter extends BaseAdapter {
         TextView foodName;
         TextView foodQuantity;
         TextView foodPrice;
+    }
+    public static String formatVnCurrence(Context context, String price) {
+
+        NumberFormat format =
+                new DecimalFormat("#,##0.00");// #,##0.00 ¤ (¤:// Currency symbol)
+        format.setCurrency(Currency.getInstance(Locale.US));//Or default locale
+
+        price = (!TextUtils.isEmpty(price)) ? price : "0";
+        price = price.trim();
+        price = format.format(Double.parseDouble(price));
+        price = price.replaceAll(",", "\\.");
+
+        if (price.endsWith(".00")) {
+            int centsIndex = price.lastIndexOf(".00");
+            if (centsIndex != -1) {
+                price = price.substring(0, centsIndex);
+            }
+        }
+        price = String.format("%s đ", price);
+        return price;
     }
 }

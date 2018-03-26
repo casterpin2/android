@@ -56,18 +56,28 @@
 
         <TextView
             android:id="@+id/txtArea"
-            android:layout_width="348dp"
+            android:layout_width="363dp"
             android:layout_height="87dp"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="26dp"
             android:layout_marginEnd="13dp"
             android:layout_marginStart="13dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@+id/spinner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gridView" />
 
 
+        <EditText
+            android:id="@+id/editQuantity"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="26dp"
+            android:ems="10"
+            android:hint="Nhập số sản phẩm muốn đặt"
+            android:inputType="number"
+            android:text="0" />
 
         <Button
             android:id="@+id/btnAddToCart"

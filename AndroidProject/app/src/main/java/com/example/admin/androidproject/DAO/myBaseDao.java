@@ -1,36 +1,32 @@
 package com.example.admin.androidproject.DAO;
 
-import android.annotation.SuppressLint;
-import android.net.wifi.WifiManager;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.StrictMode;
-import android.text.format.Formatter;
 import android.util.Log;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import static android.content.Context.WIFI_SERVICE;
-
 /**
- * Created by Admin on 3/20/2018.
+ * Created by TUYEN on 3/23/2018.
  */
 
-public class BaseDAO {
-
+public class myBaseDao extends AsyncTask<Void,Void,Connection> {
+    String connectionString = "";
+  //  String queryString = "SELECT FirstName, LastName FROM Tbl_Customer WHERE CustomerID = " + customerID;
+    Context context;
     String ip = "10.22.160.216";
     String db = "MasterAndroid";
     String un = "sa";
     String password = "123456";
-
-    @SuppressLint("NewApi")
-    public Connection CONN() {
-
+    @Override
+    protected Connection doInBackground(Void... voids) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         Connection conn = null;
         String ConnURL = null;
-
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             ConnURL = "jdbc:jtds:sqlserver://" + ip + "/" + db+ ";user=" + un + ";password=" + password + ";";
@@ -50,4 +46,11 @@ public class BaseDAO {
 
         return conn;
     }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+
 }

@@ -65,6 +65,39 @@ public class FoodDAO {
 
             return listChef;
         }
+    public boolean updateOrderStatus(String orderID) throws SQLException {
+
+        Connection conn = null;
+        PreparedStatement pre = null;
+        ResultSet rs = null;
+        boolean result = false;
+
+        try {
+            conn = new BaseDAO().CONN();
+            conn.setAutoCommit(false);
+            String sql =" update OrderTBL set StatusID = 3 where OrderID = ?";
+            pre = conn.prepareStatement(sql);
+            pre.setString(1,orderID);
+            pre.executeUpdate();
+            conn.commit();
+            return true;
+
+        } catch (Exception e) {
+            Log.e("MSG", e.getMessage());
+        } finally {
+
+            if (pre != null) {
+                pre.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
 
 
+        return false;
+    }
 }

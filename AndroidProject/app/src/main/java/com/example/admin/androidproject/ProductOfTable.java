@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -12,6 +13,10 @@ import android.widget.Toast;
 public class ProductOfTable extends AppCompatActivity {
     private int numberTable;
     private GridLayout gridLayout;
+    String employeeId;
+    String info;
+    int roleId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +25,10 @@ public class ProductOfTable extends AppCompatActivity {
 
         if(getIntent() != null)
         {
-            String info = getIntent().getStringExtra("info");
+            info = getIntent().getStringExtra("info");
             numberTable=Integer.parseInt(info);
+            employeeId = getIntent().getStringExtra("employeeId");
+            roleId = getIntent().getExtras().getInt("roleId");
             Toast.makeText(this, info+"", Toast.LENGTH_LONG).show();
         }
 
@@ -44,10 +51,26 @@ public class ProductOfTable extends AppCompatActivity {
 
                     Intent intent = new Intent(ProductOfTable.this,FoodApp.class);
                     intent.putExtra("info",""+finalI);
+                    intent.putExtra("tableNo",numberTable);
+                    intent.putExtra("employeeId",employeeId+"");
                     startActivity(intent);
 
                 }
             });
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+
+                Intent intent  = new Intent(this,ProductViewActivity.class);
+                intent.putExtra("employeeId",employeeId+"");
+                intent.putExtra("roleId",roleId);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

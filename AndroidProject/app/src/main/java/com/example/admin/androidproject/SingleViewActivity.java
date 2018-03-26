@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +18,9 @@ import android.widget.Toast;
 
 import com.example.admin.androidproject.DAO.SingleViewDao;
 import com.example.admin.androidproject.Entities.FoodEntities;
+import com.example.admin.androidproject.Entities.OrderEntities;
+
+import java.sql.SQLOutput;
 
 import static com.example.admin.androidproject.FoodAdapter.formatVnCurrence;
 
@@ -30,7 +34,14 @@ public class SingleViewActivity extends AppCompatActivity {
     private FoodEntities food;
     private Dialog dialog;
     private Button btnOK;
-
+    int numberOrder = 0;
+    private EditText editText;
+    int total;
+    String position;
+    String employeeId;
+    private OrderEntities orderEntities;
+    int numberTable;
+    int numberOfFood;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,19 +54,23 @@ public class SingleViewActivity extends AppCompatActivity {
         txtDescripton = (TextView) findViewById(R.id.txtArea);
         btnAdd = (Button) findViewById(R.id.btnAddToCart);
         btnOK = (Button) findViewById(R.id.btnOK);
-        String position = i.getExtras().getString("id");
-        int total = i.getExtras().getInt("total");
+         position = i.getExtras().getString("id");
+        total = i.getExtras().getInt("total");
+         numberTable = i.getExtras().getInt("numberTable");
+         employeeId = i.getExtras().getString("employeeId");
+        numberOfFood = i .getExtras().getInt("numberOffood");
         try {
             singleViewDao = new SingleViewDao();
             food = singleViewDao.getInfoFood(position);
-
+            orderEntities = new OrderEntities();
 
             int id = this.getResources().getIdentifier(food.getFoodImg() + "", "drawable", this.getPackageName());
             imgView.setImageResource(id);
             txtName.setText(food.getFoodName());
             txtPrice.setText(formatVnCurrence(this, food.getFoodPrice() + ""));
             txtDescripton.setText(food.getFoodDes());
-
+            editText = (EditText) findViewById(R.id.editQuantity);
+            Toast.makeText(this, editText.getText() + "", Toast.LENGTH_SHORT).show();
 
             btnAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,6 +84,9 @@ public class SingleViewActivity extends AppCompatActivity {
             Log.e("MSG", e.getMessage());
         }
 
+
+
+
     }
 
     public void showDialog() {
@@ -80,11 +98,39 @@ public class SingleViewActivity extends AppCompatActivity {
     }
 
     public void OnClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnOK:
+                boolean checkInsert = false;
+                try {
+                    if (editText.getText() != null || !editText.getText().equals("")) {
+                        numberOrder = Integer.parseInt(editText.getText().toString());
+                    }
+                    numberTable+=1;
+                    orderEntities.setFoodOrderQuantity(numberOrder);
+                    orderEntities.setTableNo(numberTable);
+                    orderEntities.setEmployeeId(employeeId);
+                    orderEntities.setFoodId(position);
+                    if(numberTable<10){
+                        orderEntities.setOrderId(employeeId+"-00"+numberTable);
+                    }else{
+                        orderEntities.setOrderId(employeeId+"-0"+numberTable);
+                    }
 
-                dialog.hide();
-                break;
+                    checkInsert = new SingleViewDao().addImployee(orderEntities, total);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                if (checkInsert) {
+                //    dialog.hide();
+                    Intent i = new Intent(this,FoodApp.class);
+                    i.putExtra("number",numberOfFood);
+                    setResult(200, i);
+                    dialog.cancel();
+                    finish();
+
+                } else Toast.makeText(this, "Something wrong !!!", Toast.LENGTH_SHORT).show();
+
+
             case R.id.btnCancel:
 
                 dialog.hide();

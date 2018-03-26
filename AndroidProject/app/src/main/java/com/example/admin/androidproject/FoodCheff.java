@@ -63,7 +63,18 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
 
     @Override
     public void onClick(View view, int position) {
-        chefEntities.remove(position);
-        adapter.notifyDataSetChanged();
+        ChefEntities chef = chefEntities.get(position);
+        boolean checkUpdate = false;
+        try{
+            checkUpdate = new FoodDAO().updateOrderStatus(chef.getOrderId());
+        }catch (Exception e){
+            Log.e("abc",e.getMessage());
+        }
+        if(checkUpdate){
+            chefEntities.remove(position);
+            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+            adapter.notifyDataSetChanged();
+        }else Toast.makeText(this, "Something Wrong", Toast.LENGTH_SHORT).show();
+
     }
 }

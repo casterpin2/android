@@ -1,5 +1,6 @@
 package com.example.admin.androidproject.DAO;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.admin.androidproject.Entities.ChefEntities;
@@ -16,7 +17,7 @@ import java.util.List;
  * Created by Admin on 3/23/2018.
  */
 
-public class LoginDAO {
+public class LoginDAO extends AsyncTask<String,String,UserEntites> {
     public UserEntites loginAccount(String username,String password) throws SQLException {
         UserEntites user = null;
 
@@ -62,5 +63,20 @@ public class LoginDAO {
         return user;
 
 
+    }
+
+    @Override
+    protected UserEntites doInBackground(String... voids) {
+        return null;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onPostExecute(UserEntites userEntites) {
+        super.onPostExecute(userEntites);
     }
 }

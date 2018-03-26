@@ -83,7 +83,7 @@ public class ProductViewDAO {
 
         try {
             conn = new BaseDAO().CONN();
-            String sql ="select o.OrderID,o.TableNo,o.OrderTime,e.EmployeeName from \n" +
+            String sql ="select distinct o.OrderID,o.TableNo,o.OrderTime,e.EmployeeName from \n" +
                     "                    OrderTBL o join StatusTBL s on o.StatusID = s.StatusID\n" +
                     "                    join EmployeeTBL e on e.EmployeeId = o.EmployeeOrder \n" +
                     "                    where  o.StatusID in (3)";
@@ -170,33 +170,31 @@ public class ProductViewDAO {
 
         try {
             conn = new BaseDAO().CONN();
+            conn.setAutoCommit(false);
             String sql =" update OrderTBL set StatusID = 2 where OrderID = ?";
-            pre.setString(1,orderID);
             pre = conn.prepareStatement(sql);
-            rs = pre.executeQuery();
-            if (!rs.next() && rs.getRow() == 0) {
-                result = false; // If there is no result set false
-                System.out.println("Wrong with updating!");
-            } else {
-                result = true; // If there is a result set true
-                System.out.println("Update successful!");
-            }
+            pre.setString(1,orderID);
+            pre.executeUpdate();
+            conn.commit();
+            return true;
+
         } catch (Exception e) {
             Log.e("MSG", e.getMessage());
         } finally {
-            if (conn != null) {
-                conn.close();
-            }
+
             if (pre != null) {
                 pre.close();
             }
             if (rs != null) {
                 rs.close();
             }
+            if (conn != null) {
+                conn.close();
+            }
         }
 
 
-        return result;
+        return false;
     }
 
 

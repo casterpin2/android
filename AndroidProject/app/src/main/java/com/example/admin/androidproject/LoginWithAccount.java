@@ -51,10 +51,16 @@ public class LoginWithAccount extends AppCompatActivity {
                          startActivity(i);
                         break;
                     case 2:
-
+                        i = new Intent(this, ViewOrderListByCasher.class);
+                        i.putExtra("empID",user.getEmployeeID()+"");
+                        i.putExtra("roleId",user.getRoleId());
+                        startActivity(i);
                         break;
                     case 3:
-
+                        i = new Intent(this, ViewOrderListByChef.class);
+                        i.putExtra("empID",user.getEmployeeID()+"");
+                        i.putExtra("roleId",user.getRoleId());
+                        startActivity(i);
                         break;
                 }
 

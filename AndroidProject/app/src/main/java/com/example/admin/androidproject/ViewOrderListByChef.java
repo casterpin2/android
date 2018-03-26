@@ -23,12 +23,20 @@ public class ViewOrderListByChef extends AppCompatActivity {
     List<ChefEntities> orderList = null;
     ArrayAdapter<OrderForCasherEntities> adapter = null;
     static final int REQUEST = 8888;
-
+    String empId;
+    int roleId;
+    String isUpdate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order_list_by_chef2);
         orderingListView =(ListView) findViewById(R.id.orderingListView2);
+        if(getIntent()!=null){
+            empId = getIntent().getExtras().getString("empID");
+            roleId = getIntent().getExtras().getInt("roleId");
+            isUpdate = getIntent().getExtras().getString("isUpdate");
+            System.out.println(empId+""+roleId);
+        }
         orderList = new ArrayList<ChefEntities>();
         ProductViewDAO dao = new ProductViewDAO();
         try {

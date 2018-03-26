@@ -7,7 +7,7 @@ import java.util.Date;
  */
 
 public class OrderEntities {
-    private int orderId;
+    private String orderId;
     private int tableNo;
     private Date orderTime;
     private String foodId;
@@ -20,7 +20,7 @@ public class OrderEntities {
 
     }
 
-    public OrderEntities(int orderId, int tableNo, Date orderTime, String foodId, int foodOrderQuantity, String demandCustommer, int statusId, String employeeId) {
+    public OrderEntities(String orderId, int tableNo, Date orderTime, String foodId, int foodOrderQuantity, String demandCustommer, int statusId, String employeeId) {
         this.orderId = orderId;
         this.tableNo = tableNo;
         this.orderTime = orderTime;
@@ -31,11 +31,11 @@ public class OrderEntities {
         this.employeeId = employeeId;
     }
 
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 

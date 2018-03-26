@@ -23,14 +23,27 @@ public class ViewOrderListByCasher extends AppCompatActivity {
     List<OrderForCasherEntities> orderList = null;
     ArrayAdapter<OrderForCasherEntities> adapter = null;
     static final int REQUEST = 8888;
+    String empId;
+    int roleId;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK) {
+        if(requestCode == 100 && resultCode ==200) {
             boolean isUpdate = data.getBooleanExtra("isUpdate",false);
+            String orderId = data.getStringExtra("orderId");
+            ProductViewDAO dao = new ProductViewDAO();
+            try {
+                orderList = dao.getOrdertoCasher();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ListViewAdapter adapter = new ListViewAdapter(ViewOrderListByCasher.this, R.layout.activity_custom_list_view, orderList);
+            orderingListView.setAdapter(adapter);
             Toast.makeText(this,isUpdate+"",Toast.LENGTH_LONG).show();
         }
+
+
     }
 
     @Override
@@ -60,7 +73,7 @@ public class ViewOrderListByCasher extends AppCompatActivity {
                 intent.putExtra("orderTime",order.getOrderTime());
                 intent.putExtra("employeeName",order.getEmployeeOrder());
 
-                startActivity(intent);
+                startActivityForResult(intent,100);
 //                Toast.makeText(ViewOrderListByCasher.this, "Order : [" +orderList.get(position).getOrderID()+orderList.get(position).getTableNo()+ "]", Toast.LENGTH_LONG).show();
 
             }
