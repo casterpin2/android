@@ -46,7 +46,6 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
             numberOfFood = Integer.parseInt(info);
             nameOrder = getIntent().getStringExtra("employeeNameOrder");
             date = getIntent().getStringExtra("orderTime");
-            Toast.makeText(this, info + "", Toast.LENGTH_LONG).show();
         }
         try{
             chefEntities = new FoodDAO().getOrder(numberOfFood);

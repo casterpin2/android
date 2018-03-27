@@ -96,7 +96,15 @@ public class ListViewAdapterByChef extends BaseAdapter {
             TextView employeeName = (TextView) convertView.findViewById(R.id.employeeID);
             employeeName.setText(order.getOderByName());
 
-            holder.imageView.setImageResource(R.drawable.test);
+
+            switch (order.getTable()){
+                case 1:
+                    holder.imageView.setImageResource(R.drawable.so1);
+                    break;
+                case 2:
+                    holder.imageView.setImageResource(R.drawable.so2);
+                    break;
+            }
 
 
         }

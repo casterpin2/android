@@ -38,6 +38,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp"
             android:text="Back Home"
+            android:layout_width="3dp"
             android:background="@color/colorBitOrange"
             android:textColor="@color/colorWhite"
             />
@@ -46,6 +47,7 @@
             android:id="@+id/printvatBtn"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:layout_width="3dp"
             android:layout_marginRight="10dp"
             android:text="Print VAT Bill"
             android:background="@color/colorBitOrange"

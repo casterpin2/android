@@ -17,6 +17,7 @@ public class PaymentSuccess extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_success);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.logo_restaurant);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
