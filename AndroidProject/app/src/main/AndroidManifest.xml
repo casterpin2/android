@@ -18,12 +18,12 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
-             <!--<intent-filter>-->
-             <!--<action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <!--<category android:name="android.intent.category.LAUNCHER" />-->
-             <!--</intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".FoodApp"
@@ -35,9 +35,7 @@
             android:name=".ProductOfTable"
             android:parentActivityName=".ProductViewActivity" />
         <activity android:name=".CustomListView" />
-        <activity android:name=".ViewOrderListByCasher">
-
-        </activity>
+        <activity android:name=".ViewOrderListByCasher" />
         <activity android:name=".FoodCheff">
 
             <!-- <intent-filter> -->
@@ -48,17 +46,16 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".OrderingDetail" />
-        <activity android:name=".ViewOrderListByChef">
-
-        </activity>
+        <activity android:name=".ViewOrderListByChef" />
         <activity android:name=".LoginWithAccount">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PaymentSuccess" />
+        <activity android:name=".PaymentFail"></activity>
     </application>
 
 </manifest>

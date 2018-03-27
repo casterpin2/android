@@ -63,14 +63,17 @@ public class ListViewAdapter extends BaseAdapter {
         }
         OrderForCasherEntities order = list.get(position);
 
-        switch (order.getTableNo()){
-            case 1:
-                holder.imageView.setImageResource(R.drawable.so1);
-                break;
-            case 2:
-                holder.imageView.setImageResource(R.drawable.so2);
-                break;
-        }
+//        switch (order.getTableNo()){
+//            case 1:
+//                holder.imageView.setImageResource(R.drawable.so1);
+//                break;
+//            case 2:
+//                holder.imageView.setImageResource(R.drawable.so2);
+//                break;
+//        }
+        ImageView tableNoImg = (ImageView) view.findViewById(R.id.imageView);
+        int id = context.getResources().getIdentifier(list.get(position).getTableNo() + "", "drawable", context.getPackageName());
+        tableNoImg.setImageResource(id);
 
         if(order != null) {
             TextView orderID = (TextView) view.findViewById(R.id.orderID);

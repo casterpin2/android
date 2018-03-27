@@ -45,6 +45,11 @@ public class OrderingDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordering_detail);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.logo_restaurant);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
 
         payBtn = (Button) findViewById(R.id.payBtn);
         backBtn = (Button) findViewById(R.id.backBtn);
@@ -106,11 +111,14 @@ public class OrderingDetail extends AppCompatActivity {
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
-                        Intent result = new Intent(OrderingDetail.this,ViewOrderListByChef.class);
-                        result.putExtra("isUpdate", isUpdate+"");
-                        result.putExtra("orderId",orderID+"");
-                        setResult(200, result);
-                        finish();
+                        if(isUpdate == true) {
+                            Intent intent = new Intent(OrderingDetail.this,PaymentSuccess.class);
+                            startActivity(intent);
+                        } else if (isUpdate == false) {
+                            Intent intent = new Intent(OrderingDetail.this,PaymentFail.class);
+                            startActivity(intent);
+                        }
+
                     }
                 });
                 builder.setNegativeButton(R.string.notyet, new DialogInterface.OnClickListener() {
@@ -122,20 +130,8 @@ public class OrderingDetail extends AppCompatActivity {
                 builder.setTitle("Payment Confirm");
                 builder.setMessage("Do you want to pay this order?");
                 AlertDialog alertDialog = builder.create();
-                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.LTGRAY));
                 alertDialog.show();
-                Button nbutton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                nbutton.setBackground(
-                        ContextCompat.getDrawable(
-                                getBaseContext(),R.drawable.dialog_button
-                        ));
-                nbutton.setTextColor(Color.BLACK);
-                Button pbutton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-                pbutton.setBackground(
-                        ContextCompat.getDrawable(
-                                getBaseContext(),R.drawable.dialog_button
-                        ));
-                pbutton.setTextColor(Color.BLACK);
+                alertDialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE);
 
 //                final Dialog dialog = new Dialog(view.getContext()); // Context, this, etc.
 //                dialog.setContentView(R.layout.dialog_confirm);
