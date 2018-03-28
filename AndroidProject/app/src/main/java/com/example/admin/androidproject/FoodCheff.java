@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -84,4 +85,17 @@ public class FoodCheff extends AppCompatActivity implements ItemClickListener {
         }else Toast.makeText(this, "Something Wrong", Toast.LENGTH_SHORT).show();
 
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0){
+            return true;
+        }
+        return super.onKeyDown(keyCode,event);
+    }
+
+//    @Override
+//    public void onBackPressed() {
+//        return;
+//    }
 }
