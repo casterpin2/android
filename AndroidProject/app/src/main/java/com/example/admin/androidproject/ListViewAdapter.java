@@ -70,6 +70,30 @@ public class ListViewAdapter extends BaseAdapter {
             case 2:
                 holder.imageView.setImageResource(R.drawable.so2);
                 break;
+            case 3:
+                holder.imageView.setImageResource(R.drawable.so3);
+                break;
+            case 4:
+                holder.imageView.setImageResource(R.drawable.so4);
+                break;
+            case 5:
+                holder.imageView.setImageResource(R.drawable.so5);
+                break;
+            case 6:
+                holder.imageView.setImageResource(R.drawable.so6);
+                break;
+            case 7:
+                holder.imageView.setImageResource(R.drawable.so7);
+                break;
+            case 8:
+                holder.imageView.setImageResource(R.drawable.so8);
+                break;
+            case 9:
+                holder.imageView.setImageResource(R.drawable.so9);
+                break;
+            case 10:
+                holder.imageView.setImageResource(R.drawable.so10);
+                break;
         }
 //        ImageView tableNoImg = (ImageView) view.findViewById(R.id.imageView);
 //        int id = context.getResources().getIdentifier(list.get(position).getTableNo() + "", "drawable", context.getPackageName());
